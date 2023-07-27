@@ -17,3 +17,15 @@ Step 5) go to frontend /src/components/form.jsx "replace const response = await 
 city=${cityName}`);"
 
 step 6) to start Server in ternminal type "node index.js " or nodemon index.js and to start Front End Server in terminal of frontend type npm start
+
+# HOSTED APPLICATION 
+
+Frontend Hosted Link 
+https://weatherapp-front.onrender.com/
+
+BAckend Hosted Link 
+https://weatherbackend-lhvv.onrender.com/
+
+to test backend separately can use https://weatherbackend-lhvv.onrender.com/?city=${cityname}
+example
+https://weatherbackend-lhvv.onrender.com/?city=delhi
