@@ -48,7 +48,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('https://cdn.wallpapersafari.com/13/90/yc8Sh5.jpg'); /* Replace 'your-background-image-url.jpg' with your actual background image URL */
+  background-image: url('https://cdn.wallpapersafari.com/13/90/yc8Sh5.jpg'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -91,7 +91,7 @@ button {
   cursor: pointer;
 }
 
-/* Weather data styles */
+
 .weather-data {
   margin-top: 20px;
 }
@@ -112,7 +112,7 @@ button {
   }
 }
 .blinking-icon {
-  animation: blink 2s infinite; /* Adjust the blinking speed (e.g., 2s) as desired */
+  animation: blink 2s infinite; 
 }
 
 

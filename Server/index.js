@@ -14,7 +14,7 @@ app.get('/', async (req, res) => {
     const city=req.query.city;
     try{
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`);
-        // Fetch hourly forecast data
+        // Fetching  hourly forecast data
     const forecastResponse = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apikey}`);
     const currentWeather = {
         weather: response.data.weather[0].main,
@@ -25,7 +25,7 @@ app.get('/', async (req, res) => {
       };
         
        
-    // Get hourly forecast data from the response
+    // Get the  hourly forecast data from the response
     const hourlyForecastData = forecastResponse.data.list.map((forecast) => ({
         time: forecast.dt_txt,
         temperatureCelsius: (forecast.main.temp - 273.15).toFixed(2),
@@ -41,14 +41,7 @@ app.get('/', async (req, res) => {
         currentWeather,
         hourlyForecastData,
       };
-  
-  
-      
-     
-      
-  
-        
-       
+
        res.send(sending)
        
     }catch(err){
