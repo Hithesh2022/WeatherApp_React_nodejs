@@ -14,19 +14,42 @@ app.get('/', async (req, res) => {
     const city=req.query.city;
     try{
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`);
-        
-        const temperatureInKelvin = response.data.main.temp;
-        const temperatureCelsius = (temperatureInKelvin - 273.15).toFixed(2);
-        const humidity = response.data.main.humidity;
-        const weather=response.data.weather[0].main;
-        const description=response.data.weather[0].description;
-        const icon=response.data.weather[0].icon;
-        
-        const send=[ weather,icon,description,temperatureCelsius, humidity]
-        console.log(send[0])
+        // Fetch hourly forecast data
+    const forecastResponse = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apikey}`);
+    const currentWeather = {
+        weather: response.data.weather[0].main,
+        icon: response.data.weather[0].icon,
+        description: response.data.weather[0].description,
+        temperatureCelsius: (response.data.main.temp - 273.15).toFixed(2),
+        humidity: response.data.main.humidity,
+      };
         
        
-       res.send(send)
+    // Get hourly forecast data from the response
+    const hourlyForecastData = forecastResponse.data.list.map((forecast) => ({
+        time: forecast.dt_txt,
+        temperatureCelsius: (forecast.main.temp - 273.15).toFixed(2),
+        humidity: forecast.main.humidity,
+        weather: forecast.weather[0].main,
+        description: forecast.weather[0].description,
+        icon: forecast.weather[0].icon,
+      }));
+      
+  
+      // Create an array to send back to the client
+      const sending = {
+        currentWeather,
+        hourlyForecastData,
+      };
+  
+  
+      
+     
+      
+  
+        
+       
+       res.send(sending)
        
     }catch(err){
         console.log(err);
