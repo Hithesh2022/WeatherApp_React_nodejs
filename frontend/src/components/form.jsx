@@ -9,7 +9,7 @@ function Form({ setWeatherData }) {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`http://localhost:5000/?city=${cityName}`);
+      const response = await axios.get(`https://weatherbackend-lhvv.onrender.com/?city=${cityName}`);
       setWeatherData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error.message);
