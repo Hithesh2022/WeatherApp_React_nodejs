@@ -48,7 +48,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('http://2.bp.blogspot.com/-NcNhs6wo7-0/UtPctnufxeI/AAAAAAAAALU/Erd2OZ0qbRA/s1600/beach+sunset+colorfull+wallpaper.jpg'); /* Replace 'your-background-image-url.jpg' with your actual background image URL */
+  background-image: url('https://cdn.wallpapersafari.com/13/90/yc8Sh5.jpg'); /* Replace 'your-background-image-url.jpg' with your actual background image URL */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -69,13 +69,14 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
 }
 
 input[type="text"] {
   width: 300px;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -97,25 +98,39 @@ button {
 
 .card {
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 400px;
 }
-img{
-  display:'block';
-  margin: '0 auto';
-  width: '100px';
-  height: '200px'
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.5;
+  }
+}
+.blinking-icon {
+  animation: blink 2s infinite; /* Adjust the blinking speed (e.g., 2s) as desired */
 }
 
 
 .weather-form {
-  background-color: rgba(255, 255, 255, 0.4); /* Set the alpha value (0.0 to 1.0) to control transparency */
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.4); 
+   padding: 20px;
   border-radius: 5px;
   max-width: 400px;
   margin: 0 auto;
   margin-top: 50px;
-  text-align: center;
+}
+
+.card {
+  display: flex;
+}
+
+.weather-data {
+  margin-right: 20px;
 }
